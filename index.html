@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Souq al-Miau — Six Cats, Six Extremely Serious Names</title>
+  <meta name="description" content="A night bazaar staffed entirely by cats with catastrophically long names. Memorise them. Slap them. Get paid." />
+  <meta name="theme-color" content="#0a090c" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip" href="#arena">Skip to the game</a>
+
+  <div class="atmos" aria-hidden="true">
+    <span class="glow g1"></span>
+    <span class="glow g2"></span>
+    <span class="glow g3"></span>
+    <span class="lantern l1"></span>
+    <span class="lantern l2"></span>
+    <span class="lantern l3"></span>
+    <span class="lantern l4"></span>
+  </div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round">
+          <path d="M12 2.5 21 7v10l-9 4.5L3 17V7z" />
+          <path d="M12 8.2 16 10.4v3.5L12 16.2 8 13.9v-3.5z" />
+        </svg>
+      </span>
+      <span class="brand-text">Souq <em>al-Miau</em></span>
+    </a>
+
+    <nav class="nav" aria-label="Sections">
+      <a href="#arena">Play</a>
+      <a href="#roster">The Cats</a>
+      <a href="#ledger">Ledger</a>
+    </nav>
+
+    <div class="top-actions">
+      <button id="musicBtn" class="icon-btn" type="button" aria-pressed="true" aria-label="Music on or off" title="Music on / off">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 17.6V5.3l9-1.9v11.7" />
+          <circle cx="6.6" cy="18" r="2.6" />
+          <circle cx="15.6" cy="16.3" r="2.6" />
+        </svg>
+      </button>
+      <button id="voiceBtn" class="icon-btn" type="button" aria-pressed="true" aria-label="Name announcements on or off" title="Name announcements on / off">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 5.6h16v9.8H10.4L5.6 19v-3.6H4z" />
+          <path d="M8.4 10.5h7.2M8.4 13.2h4.4" />
+        </svg>
+      </button>
+      <button id="muteBtn" class="icon-btn" type="button" aria-pressed="true" aria-label="Game sound effects on or off" title="Effects on / off">
+        <svg class="ico ico-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 9.5v5h3.4L12 18.5v-13L7.4 9.5z" />
+          <path d="M16 8.6a5 5 0 0 1 0 6.8" />
+          <path d="M18.8 6a8.6 8.6 0 0 1 0 12" opacity=".55" />
+        </svg>
+        <svg class="ico ico-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 9.5v5h3.4L12 18.5v-13L7.4 9.5z" />
+          <path d="M16.5 9.5 21 14.5M21 9.5l-4.5 5" />
+        </svg>
+      </button>
+      <a class="btn btn-small" href="#arena">Slap something</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Est. 1147 &middot; Open until the fish runs out</p>
+      <h1 class="hero-title">
+        Six cats.<br />
+        <span class="accent">Six extremely</span><br />
+        serious names.
+      </h1>
+      <p class="hero-sub">
+        Welcome to the bazaar where every merchant has a name you cannot pronounce
+        and a debt you cannot explain. Match the name. Slap the cat. Get paid.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#arena">Enter the Souq</a>
+        <a class="btn btn-ghost" href="#roster">Meet the merchants</a>
+      </div>
+      <div class="hero-cats" id="heroCats" aria-hidden="true"></div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track" id="marquee"></div>
+    </div>
+
+    <section class="section arena" id="arena">
+      <div class="section-head">
+        <div>
+          <p class="kicker">The only attraction</p>
+          <h2>Souq <span class="accent">Slap</span></h2>
+        </div>
+        <p class="section-note">
+          A customer shouts a name. Find the cat. Slap the cat. The cats have agreed to this. Mostly.
+        </p>
+      </div>
+
+      <div class="game" id="game">
+        <div class="hud">
+          <div class="hud-item">
+            <span>Score</span>
+            <strong id="hudScore">0</strong>
+          </div>
+          <div class="hud-item">
+            <span>Multiplier</span>
+            <strong id="hudCombo">x1</strong>
+          </div>
+          <div class="hud-item hud-time">
+            <span>Time</span>
+            <strong id="hudTime">40</strong>
+          </div>
+        </div>
+
+        <div class="timerbar" aria-hidden="true"><i id="timerFill"></i></div>
+
+        <div class="order">
+          <span class="order-tag">The customer shouts</span>
+          <p class="order-name" id="orderName" aria-live="polite">&mdash;</p>
+        </div>
+
+        <div class="board" id="board" aria-label="Cat board"></div>
+
+        <div class="veil" id="veil">
+          <div class="panel is-active" data-panel="intro">
+            <p class="panel-kicker">Shift briefing</p>
+            <h3 class="panel-title">You are the new slapper.</h3>
+            <ul class="rules">
+              <li><b>A customer shouts a name.</b> Out loud. It is always one of the six.</li>
+              <li><b>Find that cat</b> on the board and tap it.</li>
+              <li><b>Chain correct slaps</b> to raise your combo and your pay.</li>
+              <li><b>Slap the wrong cat</b> and lose 2 seconds plus all dignity.</li>
+            </ul>
+            <button class="btn btn-primary" id="startBtn" type="button">Start the shift</button>
+            <p class="panel-foot">40 seconds. Endless disrespect. The music gets worse on purpose.</p>
+          </div>
+
+          <div class="panel" data-panel="study">
+            <p class="panel-kicker">Learn the staff</p>
+            <h3 class="panel-title">Memorise the merchants</h3>
+            <div class="study-grid" id="studyGrid"></div>
+            <div class="study-foot">
+              <span class="countdown" id="studyCount">6</span>
+              <button class="btn btn-ghost btn-small" id="readyBtn" type="button">I know them already</button>
+            </div>
+          </div>
+
+          <div class="panel" data-panel="over">
+            <p class="panel-kicker">Shift over</p>
+            <h3 class="panel-title" id="overTitle">Dismissed</h3>
+            <p class="panel-rank" id="overRank"></p>
+            <div class="result-grid">
+              <div><span>Score</span><strong id="overScore">0</strong></div>
+              <div><span>Best combo</span><strong id="overCombo">0</strong></div>
+              <div><span>Most slapped</span><strong id="overMost">&mdash;</strong></div>
+            </div>
+            <p class="panel-note" id="overNote"></p>
+            <button class="btn btn-primary" id="againBtn" type="button">Run it back</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section roster" id="roster">
+      <div class="section-head">
+        <div>
+          <p class="kicker">Permanent staff</p>
+          <h2>The <span class="accent">Merchants</span></h2>
+        </div>
+        <p class="section-note">
+          Six professionals, all of them named after a man named in a video edit by a guy
+          who was clearly having a moment. Tap a cat to hear it answer to its own name.
+        </p>
+      </div>
+      <div class="roster-grid" id="rosterGrid"></div>
+    </section>
+
+    <section class="section ledger" id="ledger">
+      <div class="section-head">
+        <div>
+          <p class="kicker">Strictly local, strictly honest</p>
+          <h2>The <span class="accent">Ledger</span></h2>
+        </div>
+        <p class="section-note">
+          Your results are stored on this device only. The cats keep their own copy in their heads.
+        </p>
+      </div>
+
+      <div class="ledger-grid">
+        <div class="record">
+          <span>Best score</span>
+          <strong id="bestScore">0</strong>
+        </div>
+        <div class="record">
+          <span>Best combo</span>
+          <strong id="bestCombo">0</strong>
+        </div>
+        <div class="record">
+          <span>Shifts worked</span>
+          <strong id="runCount">0</strong>
+        </div>
+      </div>
+
+      <ol class="scores" id="scores"></ol>
+      <button class="link-btn" id="resetLedger" type="button">Erase the ledger (the cats will notice)</button>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer-big">No cats were harmed. Several were mildly surprised.</p>
+    <p class="footer-small">
+      Souq al-Miau is a work of fiction. Any resemblance to real bazaars, real cats,
+      or real men with unexpectedly long names is purely a coincidence of the edit.
+    </p>
+    <p class="footer-tiny">Hand-drawn cats, live-synthesised bazaar, one very long night.</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/cats.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
